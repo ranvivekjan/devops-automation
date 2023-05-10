@@ -22,8 +22,7 @@ pipeline {
                 script{
                    withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
                    sh 'docker login -u ranjanvivek -p ${dockerhubpwd}'
-
-}
+                   }
                    sh 'docker push ranjanvivek/devops-integration'
                 }
             }
