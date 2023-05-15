@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'k8-node'
+    }
     /*tools{
         maven 'maven_3_5_0'
     }*/
