@@ -39,7 +39,7 @@ pipeline {
         stage('Deploying to Kubernetes') {
             steps {
                 script {
-                    kubernetesApply (configs: "deploymentservice.yaml")
+                    kubernetesDeploy (configs: "deploymentservice.yaml")
                 }
             }
         }
