@@ -36,10 +36,17 @@ pipeline {
                 }
             }
         }*/
-        stage('Deploying to Kubernetes') {
-            steps {
+        stage('Deploy to k8s'){
+            steps{
                 script {
-                    kubernetesDeploy (configs: "deploymentservice.yaml")
+	                sh "cp deploymentservice.yaml /home/ubuntu"
+                }
+                script {
+	                try{
+		                sh "kubectl apply -f ."
+	                }catch(error) {
+		                sh "kubectl create -f ."
+	                }
                 }
             }
         }
