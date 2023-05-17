@@ -54,7 +54,6 @@ pipeline {
 		steps {
 			sshagent(['k8s']) {
 				sh "scp -o StrictHostKeyChecking=no deploymentservice.yaml ubuntu@65.0.55.243:/home/ubuntu"
-				sh "sudo chmod +x /home/ubuntu/deploymentservice.yaml"
 				script {
 					try{
 						sh "ssh ubuntu@65.0.55.243 kubectl create -f ."
